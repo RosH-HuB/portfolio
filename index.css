@@ -363,20 +363,27 @@ footer p {
 }
 
 
+/* CSS code from your previous example remains unchanged above this part */
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
+        position: fixed; /* Fixed position to slide in from the left */
+        top: 0;
+        left: -100%; /* Start off-screen to the left */
         width: 200px;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.9);
         flex-direction: column;
         align-items: center;
-        display: none;
+        display: flex; /* Flex is needed for flex-direction and alignment */
         padding-top: 2rem;
+        transition: left 0.3s ease-in-out; /* Smooth transition */
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .nav-links.active {
+        left: 0; /* Slide in from the left */
     }
 
     .nav-links li {
@@ -385,6 +392,7 @@ footer p {
 
     .burger {
         display: flex;
+        z-index: 1100; /* Ensure the burger icon is above the menu */
     }
 
     .hero-text h1 {
@@ -404,10 +412,3 @@ footer p {
         font-size: 0.9rem;
     }
 }
-
-
-.burger.active + .nav-links {
-
-
-
-
