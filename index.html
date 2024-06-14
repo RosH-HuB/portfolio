@@ -136,6 +136,28 @@
 
 
     </footer>
+        <!-- JavaScript to handle the burger menu toggle -->
+<script>
+    // Select the burger and the nav-links
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li a'); // Select all nav links
+    const body = document.body;
+
+    // Toggle navigation menu on burger click
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        body.classList.toggle('menu-open'); // Optional: Prevent scrolling when the menu is open
+    });
+
+    // Close navigation menu when any link is clicked
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            body.classList.remove('menu-open'); // Optional: Re-enable scrolling when the menu is closed
+        });
+    });
+</script>
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 </body>
 </html>
