@@ -391,6 +391,7 @@ footer p {
     }
 
     .burger {
+        position:fixed;
         display: flex;
         z-index: 1100; /* Ensure the burger icon is above the menu */
     }
