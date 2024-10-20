@@ -19,6 +19,7 @@
         <!--    <a href="#" class="logo">PORTFOLIO</a> -->
             <ul class="nav-links">
                 <li><a href="#" class="active">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#social">Contact</a></li>
@@ -41,45 +42,60 @@
             </div>
         </div>
     </section>
-<section class="about-section">
-    <h2>Proficiency</h2>
-    <div class="skills">
-        <div class="skill">
-            <h3>HTML</h3>
-            <div class="bar">
-                <div class="progress" style="--width: 100%;"></div>
+    <section id="skills" class="about-section">
+        <h2>Proficiency</h2>
+        <div class="skills">
+            <div class="skill">
+                <!-- <h3>HTML</h3> Heading for HTML -->
+                <img src="img/html-5.png" alt="HTML5 Logo"> <!-- Image for HTML -->
+            </div>
+    
+            <div class="skill">
+                <!-- <h3>CSS</h3> Heading for CSS -->
+                <img src="img/css-3.png" alt="CSS3 Logo"> <!-- Placeholder for CSS logo -->
+            </div>
+    
+            <div class="skill">
+                <!-- <h3>JavaScript</h3> Heading for JavaScript -->
+                <img src="img/java-script.png" alt="JavaScript Logo"> <!-- Placeholder for JavaScript logo -->
             </div>
         </div>
-        <div class="skill">
-            <h3>CSS</h3>
-            <div class="bar">
-                <div class="progress" style="--width: 85%;"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <h3>JavaScript</h3>
-            <div class="bar">
-                <div class="progress" style="--width: 70%;"></div>
-            </div>
-        </div>
+    </section>
+    
+<!-- Modal Structure -->
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title">Project Title</h2>
+        <p id="modal-description">Project description goes here.</p>
     </div>
-</section>
+</div>
 
 
-   <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section">
         <h2>Projects I've Worked On</h2>
         <div class="projects">
-            <figure>
+            <figure class="project-card" data-title="Lost & Found" data-description=" The (Lost & Found) project is an innovative web application designed to help individuals and communities find lost people quickly and efficiently. With a user-friendly interface and robust features, this platform allows users to report and track missing persons in real-time, leveraging the power of digital connectivity to enhance search efforts.">
                 <img src="https://www.tblfaithnews.com/wp-content/uploads/2015/08/lost-and-found.jpg" alt="Lost & Found">
                 <figcaption>Lost & Found</figcaption>
             </figure>
-            <figure>
+            <figure class="project-card" data-title="UCRC" data-description="Universal College Resource Central (UCRC) is an innovative web application designed to streamline access to essential college resources for students, faculty, and staff. This platform serves as a centralized hub for information, tools, and services, facilitating a more organized and efficient college experience.">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCPP-XKRyhdX59w0MSCvjkQ8pGrPM9JTtztV2Pg5ZA0Q&s" alt="UCRC">
                 <figcaption>UCRC</figcaption>
             </figure>
-           
         </div>
     </section>
+
+    <!-- <section id="green-projects" class="green-projects-section">
+        <h2>On-going Projects</h2>
+        <ul style="list-style: none;">
+        <li>Report Generator Automation </li>
+        <li>pet adoption & Rescue web Application</li>
+
+    </ul>
+    </section>
+     -->
+    
 
     <section class="education-section" id="education">
         <h2>My Education</h2>
@@ -123,13 +139,13 @@
                 <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
-               <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a> -->
+               <a href="#"><i class="fab fa-youtube"></i></a>-->
+                <a href="https://www.instagram.com/roshanvishwakarma_27/"><i class="fab fa-instagram"></i></a> 
                 <a href="https://www.linkedin.com/in/roshan-vishwakarma-025407291/" class="fa-brands fa-linkedin-in"> </a>
             </div>
 
             </br>
-            <p>&#169; 2024 by Er. Roshan Vishwakarma / Roshwork.in@gmail.com</p>
+            <p>&#169; Designed & Developed by Roshan Vishwakarma / Roshwork.in@gmail.com</p>
         </div>
 </div>
 
@@ -140,6 +156,49 @@
     </footer>
         <!-- JavaScript to handle the burger menu toggle -->
 <script>
+
+
+
+
+//   modal
+ // Get modal element
+const modal = document.getElementById("project-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+// Get project cards
+const projectCards = document.querySelectorAll(".project-card");
+
+// Loop through project cards and add click event
+projectCards.forEach(card => {
+    card.addEventListener("click", () => {
+        // Get data from card attributes
+        const title = card.getAttribute("data-title");
+        const description = card.getAttribute("data-description");
+        
+        // Set modal content
+        modalTitle.innerText = title;
+        modalDescription.innerText = description;
+
+        // Display modal
+        modal.style.display = "block";
+    });
+});
+
+// Close modal when the close button is clicked
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Close modal when clicking outside of modal content
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
     // Select the burger and the nav-links
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
